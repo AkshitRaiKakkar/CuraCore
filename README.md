@@ -9,7 +9,7 @@
 - **Project Title**: Ayursutra — Panchakarma Management System  
 - **Team Name**: JM_Cura Core  
 - **Problem Statement ID**: SIH25023  
-- **Repository Link**: *[Add your repo link here]*  
+- **Repository Link**: *https://github.com/AkshitRaiKakkar/CuraCore.git*  
 
 ---
 
