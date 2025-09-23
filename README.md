@@ -1,187 +1,107 @@
-# 🌿 Ayursutra — Panchakarma Management System  
+# React
 
-> **A modern digital solution for Panchakarma clinics** — streamlining therapy scheduling, patient records, inventory, and follow-up care while preserving the authenticity of Ayurveda.  
+A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
 
----
+## 🚀 Features
 
-## 📌 Project Metadata  
-- **Project Title**: Ayursutra — Panchakarma Management System  
-- **Team Name**: JM_Cura Core  
-- **Problem Statement ID**: SIH25023  
-- **Repository Link**: *[Add your repo link here]*  
+- **React 18** - React version with improved rendering and concurrent features
+- **Vite** - Lightning-fast build tool and development server
+- **Redux Toolkit** - State management with simplified Redux setup
+- **TailwindCSS** - Utility-first CSS framework with extensive customization
+- **React Router v6** - Declarative routing for React applications
+- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
+- **Form Management** - React Hook Form for efficient form handling
+- **Animation** - Framer Motion for smooth UI animations
+- **Testing** - Jest and React Testing Library setup
 
----
+## 📋 Prerequisites
 
-## 📝 Executive Summary  
-Panchakarma clinics face inefficiencies in scheduling, patient record management, inventory tracking, and follow-up care — leading to delays, errors, and poor patient experience.  
+- Node.js (v14.x or higher)
+- npm or yarn
 
-**Ayursutra** solves this by providing a secure, digital platform that:  
-- 📅 Automates therapy scheduling  
-- 📋 Digitizes patient records & consent  
-- 💊 Manages inventory with alerts  
-- 🔔 Sends pre- & post-procedure reminders  
-- 📊 Enables real-time reporting & analytics  
+## 🛠️ Installation
 
-**Impact** → Reduced wait times ⏳ | Improved compliance ✅ | Safer record management 🔒  
+1. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+   
+2. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
----
+## 📁 Project Structure
 
-## 🎯 Goals & Objectives  
-**Primary Objectives:**  
-- Digitize Panchakarma patient records & therapy schedules.  
-- Provide therapist-friendly scheduling & session management.  
-- Ensure informed consent & outcome tracking.  
+```
+react_app/
+├── public/             # Static assets
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page components
+│   ├── styles/         # Global styles and Tailwind configuration
+│   ├── App.jsx         # Main application component
+│   ├── Routes.jsx      # Application routes
+│   └── index.jsx       # Application entry point
+├── .env                # Environment variables
+├── index.html          # HTML template
+├── package.json        # Project dependencies and scripts
+├── tailwind.config.js  # Tailwind CSS configuration
+└── vite.config.js      # Vite configuration
+```
 
-**Secondary Objectives:**  
-- Inventory & medicine stock management.  
-- Billing & payment tracking.  
-- Analytics for treatment effectiveness.  
+## 🧩 Adding Routes
 
----
+To add new routes to the application, update the `Routes.jsx` file:
 
-## ✨ Features  
-- 📅 **Automated Therapy Scheduling** (patients & practitioners)  
-- 🔔 **Notifications & Reminders** (SMS/Email/WhatsApp)  
-- 🧾 **Digital Consent Capture** with timestamp & versioning  
-- 📊 **Reports & Analytics** (CSV/PDF exportable)  
-- 💊 **Inventory Tracking** with low-stock alerts  
-- 💳 **Billing & Invoicing**  
-- 👩‍⚕️ **Therapist Dashboard** (daily roster, session notes)  
-- 📱 **Mobile-friendly UI** for patients & therapists  
+```jsx
+import { useRoutes } from "react-router-dom";
+import HomePage from "pages/HomePage";
+import AboutPage from "pages/AboutPage";
 
----
+const ProjectRoutes = () => {
+  let element = useRoutes([
+    { path: "/", element: <HomePage /> },
+    { path: "/about", element: <AboutPage /> },
+    // Add more routes as needed
+  ]);
 
-## 🖥️ Technology Stack  
-- **Frontend**: React (Web) + React Native / Flutter (Mobile)  
-- **Backend**: Node.js + Express / Python FastAPI  
-- **Database**: PostgreSQL (primary), Redis (cache/queues)  
-- **Storage**: AWS S3 (images & documents)  
-- **Auth**: JWT + Refresh Tokens, Role-Based Access  
-- **Integrations**: SMS/WhatsApp Gateway, Payment Gateway, Google Calendar API  
-- **Deployment**: Docker + GitHub Actions (CI/CD), AWS/GCP/DigitalOcean  
+  return element;
+};
+```
 
----
+## 🎨 Styling
 
-## 🏗️ System Architecture (High-level)  
+This project uses Tailwind CSS for styling. The configuration includes:
 
----
+- Forms plugin for form styling
+- Typography plugin for text styling
+- Aspect ratio plugin for responsive elements
+- Container queries for component-specific responsive design
+- Fluid typography for responsive text
+- Animation utilities
 
-## 📂 Data Models  
-**patients**: id, name, dob, gender, phone, email, address, blood_group, known_allergies, medical_history, aadhaar_or_identifier, created_at  
-**therapists**: id, name, qualifications, specializations, availability_slots, contact  
-**therapy_plans**: id, patient_id, prescribed_by, sessions[], start_date, end_date, notes  
-**sessions**: id, patient_id, therapist_id, therapy_type, date, start_time, end_time, notes, outcome, photos[], consent_version  
-**inventory**: id, item_name, batch_no, qty_available, reorder_level, supplier  
-**payments**: id, patient_id, amount, method, status, invoice_ref  
-**consents**: id, patient_id, consent_text_version, signed_at, signer_name  
+## 📱 Responsive Design
 
----
-
-## ⚡ API Endpoints (Examples)  
-- `POST /api/auth/login` — returns JWT  
-- `POST /api/patients` — create patient  
-- `GET /api/patients/{id}` — get patient profile  
-- `GET /api/therapists/{id}/available?date=` — check availability  
-- `POST /api/bookings` — create appointment  
-- `PATCH /api/sessions/{id}` — update session notes  
-- `GET /api/reports/weekly` — aggregated data  
-
----
-
-## 🖼️ UI / Wireframes  
-Screens to include:  
-- Home / Dashboard  
-- Book Appointment  
-- Patient Profile  
-- Therapist Dashboard  
-- Admin Dashboard  
-- Inventory Page  
-- Billing Page  
-- Reports Page  
-- Consent Capture UI  
-
----
-
-## 🔒 Security & Privacy  
-- Encrypt sensitive fields in DB & HTTPS everywhere  
-- Role-based access control + session expiry  
-- Digital consent with timestamp & versioning  
-- Audit trail for edits to medical records  
-- Periodic encrypted backups  
-
----
-
-## 🚀 Installation & Setup  
+The app is built with responsive design using Tailwind CSS breakpoints.
 
 
-# Clone repo
-git clone https://github.com/your-repo-link.git
-cd ayursutra
+## 📦 Deployment
 
-# Backend
-cd backend
-npm install
-npm run dev   # OR FastAPI: uvicorn main:app --reload
+Build the application for production:
 
-# Frontend
-cd ../frontend
-npm install
-npm start
+```bash
+npm run build
+```
 
-# Run with Docker
-docker-compose up --build
-## 🧪 Testing Plan
-- ✅ Unit tests for API endpoints
-- 🔄 Integration tests (booking, payment, consent)
-- 🧑‍💻 E2E tests with Playwright / Cypress
-- 📈 Load tests (k6) for peak booking
+## 🙏 Acknowledgments
 
----
+- Built with [Rocket.new](https://rocket.new)
+- Powered by React and Vite
+- Styled with Tailwind CSS
 
-## 📊 KPI / Success Metrics
-- ⏳ Reduce patient wait times by **50%**
-- 📅 Improve scheduling accuracy by **40%**
-- 📲 Reduce missed appointments by **30%**
-- 👍 Achieve **90%+** patient satisfaction
-
----
-
-## 🔮 Future Scope
-- 🤖 AI/ML to predict therapy effectiveness
-- 📡 IoT vitals monitoring
-- 🏥 Insurance & govt health record sync
-- ⛓️ Blockchain for immutable records
-- 📹 Teleconsultation module
-
----
-
-## 🏆 Competitive Advantage
-- Ayurveda & Panchakarma **focused**
-- Real-time progress visualization (graphs & milestones)
-- Feedback loop to refine therapy schedules
-- Mobile-first design for therapists
-
----
-
-## 👥 Team & Contributions
-- **Frontend Lead** → Patient & Therapist UI
-- **Backend/API Lead** → Core APIs & Integrations
-- **Database & DevOps** → Schema, Docker, AWS Deployment
-- **QA & Testing** → Automated + Manual coverage
-- **Docs & Research** → SIH compliance, PPTs, video scripts
-
----
-
-## 📜 Compliance & Regulations
-- Align with India’s **DPDP Act 2023**
-- Follow **HIPAA-like principles** for patient confidentiality
-- Digital consent handling with timestamps & versioning
-- Daily encrypted backups & retention policies
-
----
-
-## 📧 Contact
-- 📩 Email: *[ad4182132@gmail.com]*
-- 🔗 LinkedIn / Portfolio: *[(https://www.linkedin.com/in/akshit-rai-kakkar-75720430b/)]*
-
-💚 **Ayursutra — Transforming Panchakarma Clinics with Digital Efficiency & Ayurveda Excellence.**
+Built with ❤️ on Rocket.new
