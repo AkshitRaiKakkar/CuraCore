@@ -7,8 +7,7 @@
 ## 📌 Project Metadata  
 - **Project Title**: Ayursutra — Panchakarma Management System  
 - **Team Name**: JM_Cura Core  
-- **Problem Statement ID**: SIH25023  
-- **Repository Link**: *[Add your repo link here]*  
+- **Problem Statement ID**: SIH25023   
 
 ---
 
